@@ -21,7 +21,7 @@ var snow:FlxSprite;
 var rose:FlxSprite;
 var boomBox:BGSprite;
 var blackSprite:FlxSprite;
-var nigga:FlxSprite;
+var blkBg:FlxSprite;
 var singAnimations = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
 var evilCam = FlxCamera;
 var anotherCam = FlxCamera;
@@ -120,11 +120,11 @@ function onLoad()
 
 
 	//very bandaid fix but it works for now.. that sabo custcene rly fucked shit up ig lmao
-	nigga = new FlxSprite(0, 0).makeScaledGraphic(1280, 720, 0xff000000);
-	nigga.cameras = [game.camOther];
-	add(nigga);
-	nigga.alpha = 0;
-	global.set('nigga', nigga);
+	blkBg = new FlxSprite(0, 0).makeScaledGraphic(1280, 720, 0xff000000);
+	blkBg.cameras = [game.camOther];
+	add(blkBg);
+	blkBg.alpha = 0;
+	global.set('blkBg', blkBg);
 	
 	for (i in [bg, stars, mountains, mountains2, floor, thingy, thingy2])
 	{
@@ -152,7 +152,7 @@ function onCreatePost()
 		game.snapCamFollowToPos(1025, -800);
 		game.camHUD.alpha = 0;
 		FlxG.camera.zoom = 0.4;
-		nigga.alpha = 1;
+		blkBg.alpha = 1;
 	}
 	
 	if (PlayState.SONG.song.toLowerCase() == 'meltdown')
@@ -278,7 +278,7 @@ function onBeatHit()
 function onSongStart()
 {
 	// blackSprite.alpha = 0;
-	nigga.alpha = 0;
+	blkBg.alpha = 0;
 }
 
 function onEvent(eventName, value1, value2)
